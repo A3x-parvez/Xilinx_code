@@ -1,0 +1,93 @@
+
+--------------------------------------------------------------------------------
+-- Company: 
+-- Engineer:
+--
+-- Create Date:   23:39:01 11/21/2024
+-- Design Name:   MUX_Module
+-- Module Name:   C:/Xilinx92i/MUX/MUX_Testbench.vhd
+-- Project Name:  MUX
+-- Target Device:  
+-- Tool versions:  
+-- Description:   
+-- 
+-- VHDL Test Bench Created by ISE for module: MUX_Module
+--
+-- Dependencies:
+-- 
+-- Revision:
+-- Revision 0.01 - File Created
+-- Additional Comments:
+--
+-- Notes: 
+-- This testbench has been automatically generated using types std_logic and
+-- std_logic_vector for the ports of the unit under test.  Xilinx recommends 
+-- that these types always be used for the top-level I/O of a design in order 
+-- to guarantee that the testbench will bind correctly to the post-implementation 
+-- simulation model.
+--------------------------------------------------------------------------------
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+USE ieee.std_logic_unsigned.all;
+USE ieee.numeric_std.ALL;
+
+ENTITY MUX_Testbench_vhd IS
+END MUX_Testbench_vhd;
+
+ARCHITECTURE behavior OF MUX_Testbench_vhd IS 
+
+	-- Component Declaration for the Unit Under Test (UUT)
+	COMPONENT MUX_Module
+	PORT(
+		Y1 : IN std_logic;
+		Y2 : IN std_logic;
+		Y3 : IN std_logic;
+		Y4 : IN std_logic;
+		S : IN std_logic_vector(1 downto 0);          
+		Y : OUT std_logic
+		);
+	END COMPONENT;
+
+	--Inputs
+	SIGNAL Y1 :  std_logic := '0';
+	SIGNAL Y2 :  std_logic := '0';
+	SIGNAL Y3 :  std_logic := '0';
+	SIGNAL Y4 :  std_logic := '0';
+	SIGNAL S :  std_logic_vector(1 downto 0) := (others=>'0');
+
+	--Outputs
+	SIGNAL Y :  std_logic;
+
+BEGIN
+
+	-- Instantiate the Unit Under Test (UUT)
+	uut: MUX_Module PORT MAP(
+		Y1 => Y1,
+		Y2 => Y2,
+		Y3 => Y3,
+		Y4 => Y4,
+		S => S,
+		Y => Y
+	);
+
+	tb : PROCESS
+	BEGIN
+
+Y1 <= '0';
+Y2 <= '1';
+Y3 <= '0';
+Y4 <= '1';
+
+S <="00";
+wait for 100 ns;
+S <="01";
+wait for 100 ns;
+S <="10";
+wait for 100 ns;
+S <="11";
+wait for 100 ns;
+
+		wait; -- will wait forever
+	END PROCESS;
+
+END;
