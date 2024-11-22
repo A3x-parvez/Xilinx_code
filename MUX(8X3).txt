@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date:    23:10:20 11/21/2024 
+-- Create Date:    22:14:49 11/22/2024 
 -- Design Name: 
--- Module Name:    MUX_Module - Behavioral 
+-- Module Name:    mux_3_8_module - Behavioral 
 -- Project Name: 
 -- Target Devices: 
 -- Tool versions: 
@@ -27,23 +27,33 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity MUX_Module is
-    Port ( Y1 : in  STD_LOGIC;
-           Y2 : in  STD_LOGIC;
-           Y3 : in  STD_LOGIC;
-           Y4 : in  STD_LOGIC;
-           S : in  STD_LOGIC_VECTOR (1 downto 0);
-           Y : out  STD_LOGIC);
-end MUX_Module;
+entity mux_3_8_module is
+    Port ( I0 : in  STD_LOGIC;
+           I1 : in  STD_LOGIC;
+           I2 : in  STD_LOGIC;
+           I3 : in  STD_LOGIC;
+           I4 : in  STD_LOGIC;
+           I5 : in  STD_LOGIC;
+           I6 : in  STD_LOGIC;
+           I7 : in  STD_LOGIC;
+           S : in  STD_LOGIC_VECTOR (2 downto 0);
+           I : out  STD_LOGIC);
+end mux_3_8_module;
 
-architecture Behavioral of MUX_Module is
+architecture Behavioral of mux_3_8_module is
 
 begin
 
+
 with S select
-Y <= Y1 when "00",
-     Y2 when "01",
-	 Y3 when "10",
-     Y4 when others;
+I <= I0 when "000",
+     I1 when "001",
+	  I2 when "010",
+	  I3 when "011",
+	  I4 when "100",
+	  I5 when "101",
+	  I6 when "110",
+	  I7 when others;
+	  
 end Behavioral;
 

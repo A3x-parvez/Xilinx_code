@@ -1,0 +1,76 @@
+
+--------------------------------------------------------------------------------
+-- Company: 
+-- Engineer:
+--
+-- Create Date:   22:31:20 11/22/2024
+-- Design Name:   Dec_4X2
+-- Module Name:   C:/Xilinx92i/Decoder_2X4/Dec_2_4_test.vhd
+-- Project Name:  Decoder_2X4
+-- Target Device:  
+-- Tool versions:  
+-- Description:   
+-- 
+-- VHDL Test Bench Created by ISE for module: Dec_4X2
+--
+-- Dependencies:
+-- 
+-- Revision:
+-- Revision 0.01 - File Created
+-- Additional Comments:
+--
+-- Notes: 
+-- This testbench has been automatically generated using types std_logic and
+-- std_logic_vector for the ports of the unit under test.  Xilinx recommends 
+-- that these types always be used for the top-level I/O of a design in order 
+-- to guarantee that the testbench will bind correctly to the post-implementation 
+-- simulation model.
+--------------------------------------------------------------------------------
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+USE ieee.std_logic_unsigned.all;
+USE ieee.numeric_std.ALL;
+
+ENTITY Dec_2_4_test_vhd IS
+END Dec_2_4_test_vhd;
+
+ARCHITECTURE behavior OF Dec_2_4_test_vhd IS 
+
+	-- Component Declaration for the Unit Under Test (UUT)
+	COMPONENT Dec_4X2
+	PORT(
+		I : IN std_logic_vector(1 downto 0);          
+		O : OUT std_logic_vector(3 downto 0)
+		);
+	END COMPONENT;
+
+	--Inputs
+	SIGNAL I :  std_logic_vector(1 downto 0) := (others=>'0');
+
+	--Outputs
+	SIGNAL O :  std_logic_vector(3 downto 0);
+
+BEGIN
+
+	-- Instantiate the Unit Under Test (UUT)
+	uut: Dec_4X2 PORT MAP(
+		I => I,
+		O => O
+	);
+
+	tb : PROCESS
+	BEGIN
+
+    I <= "00";
+	wait for 100 ns;
+	I <= "01";
+	wait for 100 ns;
+	I <= "10";
+	wait for 100 ns;
+	I <= "11";
+	wait for 100 ns;
+
+		wait; -- will wait forever
+	END PROCESS;
+
+END;
