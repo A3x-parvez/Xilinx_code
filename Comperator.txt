@@ -49,7 +49,7 @@ begin
             agb <= '1';
             alb <= '0';
             aeb <= '0';
-		  elsif unsigned(a) = unsigned(b) then
+		elsif unsigned(a) = unsigned(b) then
             agb <= '0';
             alb <= '0';
             aeb <= '1';
