@@ -1,0 +1,64 @@
+----------------------------------------------------------------------------------
+-- Company: 
+-- Engineer: 
+-- 
+-- Create Date:    20:58:20 11/22/2024 
+-- Design Name: 
+-- Module Name:    Comp_module - Behavioral 
+-- Project Name: 
+-- Target Devices: 
+-- Tool versions: 
+-- Description: 
+--
+-- Dependencies: 
+--
+-- Revision: 
+-- Revision 0.01 - File Created
+-- Additional Comments: 
+--
+----------------------------------------------------------------------------------
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+---- Uncomment the following library declaration if instantiating
+---- any Xilinx primitives in this code.
+--library UNISIM;
+--use UNISIM.VComponents.all;
+
+entity Comp_module is
+    Port ( a : in  STD_LOGIC_VECTOR (3 downto 0);
+           b : in  STD_LOGIC_VECTOR (3 downto 0);
+           agb : out  STD_LOGIC;
+           alb : out  STD_LOGIC;
+           aeb : out  STD_LOGIC);
+end Comp_module;
+
+architecture Behavioral of Comp_module is
+
+begin
+
+ process(a, b)
+    begin
+        if unsigned(a) < unsigned(b) then 
+            agb <= '0';
+            alb <= '1';
+            aeb <= '0';
+        elsif unsigned(a) > unsigned(b) then
+            agb <= '1';
+            alb <= '0';
+            aeb <= '0';
+		  elsif unsigned(a) = unsigned(b) then
+            agb <= '0';
+            alb <= '0';
+            aeb <= '1';
+        else -- a = b
+            agb <= '0';
+            alb <= '0';
+            aeb <= '0';
+        end if;
+    end process;
+		  
+end Behavioral;
+
