@@ -1,0 +1,51 @@
+----------------------------------------------------------------------------------
+-- Company: 
+-- Engineer: 
+-- 
+-- Create Date:    20:00:15 11/22/2024 
+-- Design Name: 
+-- Module Name:    Decoder_Module - Behavioral 
+-- Project Name: 
+-- Target Devices: 
+-- Tool versions: 
+-- Description: 
+--
+-- Dependencies: 
+--
+-- Revision: 
+-- Revision 0.01 - File Created
+-- Additional Comments: 
+--
+----------------------------------------------------------------------------------
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+---- Uncomment the following library declaration if instantiating
+---- any Xilinx primitives in this code.
+--library UNISIM;
+--use UNISIM.VComponents.all;
+
+entity Decoder_Module is
+    Port ( I : in  STD_LOGIC_VECTOR (2 downto 0);
+           O : out  STD_LOGIC_VECTOR (7 downto 0));
+end Decoder_Module;
+
+architecture Behavioral of Decoder_Module is
+
+begin
+
+O <= "00000001" when I = "000" else
+     "00000010" when I = "001" else
+	 "00000100" when I = "010" else
+	 "00001000" when I = "011" else 
+	 "00010000" when I = "100" else
+     "00100000" when I = "101" else
+	 "01000000" when I = "110" else
+	 "10000000" when I = "111" else
+     "00000000";	  
+	  
+
+end Behavioral;
+
