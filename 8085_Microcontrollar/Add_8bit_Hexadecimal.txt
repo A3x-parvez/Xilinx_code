@@ -1,0 +1,14 @@
+;<Program title>
+
+JMP START
+
+;data
+;code
+START: NOP
+MVI B,11H
+MVI C,12H
+ADD B
+ADD C
+;Start writing your code here
+
+HLT

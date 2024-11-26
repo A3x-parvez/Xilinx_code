@@ -1,0 +1,23 @@
+;<Program title>
+
+JMP START
+
+;data
+;code
+START: NOP    
+LDA 3000H
+MOV B,A
+LDA 3001H
+MOV C,A
+LDA 3002H
+MOV H,A
+LDA 3003H
+MOV L,A
+
+DAD B
+MOV A,H
+STA 3004H
+MOV A,L
+STA 3005H
+;Start writing your code here
+HLT

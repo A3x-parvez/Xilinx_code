@@ -1,0 +1,30 @@
+; Program to divide two 8-bit numbers in 8085
+; Dividend: 3000H
+; Divisor: 3001H
+; Quotient: 3003H
+; Remainder: 3004H
+
+JMP START         ; Jump to start of the program
+
+START:  NOP       ; No operation, program starts here
+        LDA 3000H ; Load the dividend into A register
+        MOV B, A  ; Move dividend into B register (dividend in B)
+        LDA 3001H ; Load the divisor into A register
+        MOV C, A  ; Move divisor into C register (divisor in C)
+        
+        MVI D, 00H ; Initialize D register to store quotient
+
+DIV_LOOP: MOV A, B ; Load the current dividend into A
+          CMP C    ; Compare A (dividend) with C (divisor)
+          JC DONE  ; If A < C, jump to DONE (remainder found)
+          SUB C    ; Subtract C (divisor) from A
+          MOV B, A ; Update B register with new dividend
+          INR D    ; Increment the quotient in D
+          JMP DIV_LOOP ; Repeat the loop until A < C
+
+DONE:    MOV A, B  ; Move the remainder (B) into A
+         STA 3003H ; Store the remainder at 3004H
+         MOV A, D  ; Move the quotient (D) into A
+         STA 3004H ; Store the quotient at 3003H
+
+        HLT        ; Halt the program

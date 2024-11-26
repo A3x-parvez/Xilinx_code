@@ -1,0 +1,16 @@
+;Add two number give user input
+;<Program title>
+
+JMP START
+
+;data
+;code
+START: NOP
+LDA 3000H
+MOV B,A
+LDA 3001H
+ADD B
+MOV B,A
+;Start writing your code here
+
+HLT

@@ -1,0 +1,15 @@
+;Write a program to substract 2 bit Hexa decimal no. one input taken from memory.
+;<Program title>
+
+JMP START
+
+;data
+;code
+START: NOP
+LDA 3000H
+MVI B ,11H
+SUB B
+MOV C,A
+;Start writing your code here
+
+HLT
